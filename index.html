@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Horizon | Scheduling Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">EH</div>
+            <nav>
+                <div class="nav-item active">●</div>
+                <div class="nav-item">○</div>
+                <div class="nav-item">○</div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Event Scheduler <span class="badge">v2.0</span></h1>
+                <p>Advanced meeting overlap and room capacity analysis.</p>
+            </header>
+
+            <section class="input-card">
+                <div class="card-header">
+                    <h3>Analyze Schedule</h3>
+                </div>
+                <div class="input-group">
+                    <label for="eventInput">Enter Events (start, end)</label>
+                    <input type="text" id="eventInput" placeholder="[(9, 10), (10, 12), (11, 13)]" value="[(9, 10), (10, 11), (11, 12)]">
+                    <p class="hint">Format: [(s1, e1), (s2, e2)]</p>
+                </div>
+                <button onclick="processEvents()" class="btn-primary">Compute Analytics</button>
+            </section>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Attend All Events?</span>
+                    <h2 id="attendResult">--</h2>
+                    <div class="progress-bar"><div id="attendBar" class="progress"></div></div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">Min Rooms Required</span>
+                    <h2 id="roomsResult">--</h2>
+                    <p class="stat-desc">Peak concurrent meetings</p>
+                </div>
+            </section>
+
+            <section class="event-viewer">
+                <h3>Live Timeline View</h3>
+                <div id="timeline" class="timeline-content">
+                    <p class="placeholder-text">Enter events to visualize the schedule.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
